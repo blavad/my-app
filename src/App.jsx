@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>Calculatrice</h1>
-      <form action="https://localhost:5000/calculate" className="App" method="get">
+      <form action="https://localhost:5000/calculate" className="form" method="get">
       <select name="option">
         <option value="addition">+ (addition)</option>
         <option value="soustraction">- (soustraction)</option>
