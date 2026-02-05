@@ -13,26 +13,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: pnpm
-
+      # Setup Node.js environment
       - name: Setup PNPM
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v2
         with:
-          version: 9
-          run_install: false
+          version: 8
 
+      # Install package dependencies
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      - name: Build
-        run: pnpm run build
+      # Build package
+      - name: Build package
+        run: pnpm build
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
